@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Output Element</title>
+  </head>
+
+  <body>
+    <header>
+      <form
+        id="my-form"
+        oninput="result.value=parseInt(a.value)+parseInt(b.value)"
+      >
+        <input type="range" id="b" value="50" /> +
+        <input type="number" id="a" value="10" /> =
+        <output name="result" for="a b">60</output>
+      </form>
+
+      <hr />
+
+      <form
+        id="cart-form"
+        oninput="total_qty.value=parseInt(qty_a.value)+parseInt(qty_b.value);
+            total_price.value = ((parseInt(qty_a.value)*parseFloat(price_a.value))+(parseInt(qty_b.value)*parseFloat(price_b.value))).toFixed(2)"
+      >
+        <p>
+          Item A:
+          <input
+            type="number"
+            id="price_a"
+            value="29.95"
+            style="border: none; width: 120px"
+          />
+        </p>
+        <input type="number" id="qty_a" value="0" />
+        <p>
+          Item B:
+          <input
+            type="number"
+            id="price_b"
+            readonly
+            value="9.95"
+            style="border: none; width: 120px"
+          />
+        </p>
+        <input type="number" id="qty_b" value="0" />
+      </form>
+    </header>
+    <hr />
+    <main>
+      <p>
+        Total Quantity:
+        <output name="total_qty" form="cart-form" for="qty_a qty_b">0</output>
+      </p>
+      <p>
+        Total Price:
+        <output name="total_price" form="cart-form" for="price_a price_b"
+          >0</output
+        >
+      </p>
+    </main>
+  </body>
+</html>
